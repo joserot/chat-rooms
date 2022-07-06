@@ -1,7 +1,8 @@
 import { db } from "./rtdb";
 import { ref, onValue } from "firebase/database";
 
-const API_BASE_URL = "http://localhost:3500";
+// const API_BASE_URL = "http://localhost:3500";
+const API_BASE_URL = "https://chat-room-apx.herokuapp.com";
 
 export const state = {
 	data: {
