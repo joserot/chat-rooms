@@ -42,7 +42,7 @@ export const state = {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
-					Accept: "application/json",
+					Accept: "application/json; odata=verbose",
 				},
 				body: JSON.stringify({
 					message: newMessage,
@@ -78,7 +78,7 @@ export const state = {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
-				Accept: "application/json",
+				Accept: "application/json; odata=verbose",
 			},
 			body: JSON.stringify({
 				email: cs.email,
@@ -102,7 +102,7 @@ export const state = {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
-				Accept: "application/json",
+				Accept: "application/json; odata=verbose",
 			},
 			body: JSON.stringify({
 				email: cs.email,
@@ -131,7 +131,7 @@ export const state = {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
-				Accept: "application/json",
+				Accept: "application/json; odata=verbose",
 			},
 			body: JSON.stringify({
 				userId: cs.userId,
