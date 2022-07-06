@@ -40,7 +40,10 @@ export const state = {
 		if (cs.rtdbRoomId) {
 			let res = await fetch(API_BASE_URL + "/message", {
 				method: "POST",
-				headers: { "Content-Type": "application/json" },
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
 				body: JSON.stringify({
 					message: newMessage,
 					author: cs.name || cs.email,
@@ -73,7 +76,10 @@ export const state = {
 
 		let res = await fetch(API_BASE_URL + "/signup", {
 			method: "POST",
-			headers: { "Content-Type": "application/json" },
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
 			body: JSON.stringify({
 				email: cs.email,
 				name: cs.name,
@@ -94,7 +100,10 @@ export const state = {
 
 		let res = await fetch(API_BASE_URL + "/auth", {
 			method: "POST",
-			headers: { "Content-Type": "application/json" },
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
 			body: JSON.stringify({
 				email: cs.email,
 			}),
@@ -120,7 +129,10 @@ export const state = {
 
 		let res = await fetch(API_BASE_URL + "/rooms", {
 			method: "POST",
-			headers: { "Content-Type": "application/json" },
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
 			body: JSON.stringify({
 				userId: cs.userId,
 			}),
