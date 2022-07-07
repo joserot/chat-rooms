@@ -157,9 +157,11 @@ export const state = {
 				res.ok ? res.json() : Promise.reject();
 			})
 			.then((json: any) => {
-				cs.rtdbRoomId = json.rtdbRoomId;
 				console.log("hasta aca llego ");
-				this.setState(cs);
+				console.log(json);
+
+				// cs.rtdbRoomId = json.rtdbRoomId;
+				// this.setState(cs);
 			})
 			.then(() => {
 				this.listenRoom();
