@@ -156,6 +156,12 @@ export const state = {
 
 		let res = await fetch(
 			API_BASE_URL + "/rooms/" + cs.roomId + "?userId=" + cs.userId,
+			{
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				},
+			},
 		);
 
 		console.log("hasta aca llego 2");
