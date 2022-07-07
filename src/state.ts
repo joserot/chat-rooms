@@ -154,16 +154,11 @@ export const state = {
 
 		fetch(API_BASE_URL + "/rooms/" + cs.roomId + "?userId=" + cs.userId)
 			.then((res) => {
-				console.log(res);
-
 				res.ok ? res.json() : Promise.reject();
 			})
 			.then((json: any) => {
-				console.log("hasta aca llego ");
-				console.log(json);
-
-				// cs.rtdbRoomId = json.rtdbRoomId;
-				// this.setState(cs);
+				cs.rtdbRoomId = json.rtdbRoomId;
+				this.setState(cs);
 			})
 			.then(() => {
 				this.listenRoom();
