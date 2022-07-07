@@ -156,7 +156,9 @@ export const state = {
 			API_BASE_URL + "/rooms/" + cs.roomId + "?userId=" + cs.userId,
 		);
 
-		let data = await res.clone().json();
+		await console.log("text", res.text());
+
+		let data = await res.json();
 
 		console.log("hasta aca llego 3");
 		cs.rtdbRoomId = await data.rtdbRoomId;
