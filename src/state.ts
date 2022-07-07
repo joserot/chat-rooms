@@ -152,15 +152,21 @@ export const state = {
 	async connectRoom() {
 		const cs = await this.getState();
 
-		console.log("hasta aca llego");
+		console.log("hasta aca llego 2");
 
 		let res = await fetch(
 			API_BASE_URL + "/rooms/" + cs.roomId + "?userId=" + cs.userId,
 		);
 
+		console.log("hasta aca llego 2");
+
 		let data = await res.json();
+
+		console.log("hasta aca llego 3");
 		cs.rtdbRoomId = await data.rtdbRoomId;
+		console.log("hasta aca llego 4");
 		await this.setState(cs);
+		console.log("hasta aca llego 5");
 
 		await this.listenRoom();
 	},
