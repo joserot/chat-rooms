@@ -154,15 +154,9 @@ export const state = {
 
 		let res = await fetch(
 			API_BASE_URL + "/rooms/" + cs.roomId + "?userId=" + cs.userId,
-			{
-				method: "GET",
-			},
 		);
 
-		await console.log(res);
-		await console.log(res.json());
-
-		let data = await res.json();
+		let data = await res.clone().json();
 
 		console.log("hasta aca llego 3");
 		cs.rtdbRoomId = await data.rtdbRoomId;
