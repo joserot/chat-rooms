@@ -31,7 +31,7 @@ export const state = {
 		await onValue(roomRef, (snap) => {
 			const data = snap.val();
 			if (data.messages !== undefined) {
-				cs.messages = data.messages;
+				cs.messages = JSON.parse(data.messages);
 				this.setState(cs);
 			}
 		});
