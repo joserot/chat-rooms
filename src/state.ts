@@ -149,24 +149,24 @@ export const state = {
 
 		await this.connectRoom();
 	},
-	async connectRoom() {
-		const cs = await this.getState();
+	connectRoom() {
+		const cs = this.getState();
 
-		let res = await fetch(
-			API_BASE_URL + "/rooms/" + cs.roomId + "?userId=" + cs.userId,
-		);
-
-		await console.log("text", res.text());
-
-		let data = await res.json();
-
-		console.log("hasta aca llego 3");
-		cs.rtdbRoomId = await data.rtdbRoomId;
-		console.log("hasta aca llego 4");
-		await this.setState(cs);
-		console.log("hasta aca llego 5");
-
-		await this.listenRoom();
+		fetch(API_BASE_URL + "/rooms/" + cs.roomId + "?userId=" + cs.userId)
+			.then((res) => {
+				res.ok ? res.json() : Promise.reject();
+			})
+			.then((json: any) => {
+				cs.rtdbRoomId = json.rtdbRoomId;
+				console.log("hasta aca llego ");
+				this.setState(cs);
+			})
+			.then(() => {
+				this.listenRoom();
+			})
+			.catch((err) => {
+				console.log("ERROR", err);
+			});
 	},
 	subscribe(callback) {
 		this.listeners.push(callback);
