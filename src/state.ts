@@ -27,8 +27,6 @@ export const state = {
 	async listenRoom() {
 		const cs = await this.getState();
 
-		console.log(cs);
-
 		const roomRef = await ref(db, "rooms/" + cs.rtdbRoomId);
 
 		await onValue(roomRef, (snap) => {
@@ -78,6 +76,8 @@ export const state = {
 		cs.name = await name;
 		cs.roomId = await room;
 		await this.setState(cs);
+
+		console.log(cs);
 
 		let res = await fetch(API_BASE_URL + "/signup", {
 			method: "POST",

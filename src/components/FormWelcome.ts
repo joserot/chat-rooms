@@ -71,8 +71,8 @@ export function initFormWelcome() {
 				});
 			};
 
-			const processForm = () => {
-				$form.addEventListener("submit", (e) => {
+			const processForm = async () => {
+				await $form.addEventListener("submit", (e) => {
 					e.preventDefault();
 					const name = e.target.name.value;
 					const email = e.target.email.value;
