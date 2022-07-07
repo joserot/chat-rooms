@@ -70,11 +70,11 @@ export const state = {
 		// this.setState(cs);
 	},
 	async setData(name, email, room) {
-		const cs = this.getState();
-		cs.email = email;
-		cs.name = name;
-		cs.roomId = room;
-		this.setState(cs);
+		const cs = await this.getState();
+		cs.email = await email;
+		cs.name = await name;
+		cs.roomId = await room;
+		await this.setState(cs);
 
 		let res = await fetch(API_BASE_URL + "/signup", {
 			method: "POST",
@@ -98,7 +98,7 @@ export const state = {
 		}
 	},
 	async auth() {
-		const cs = this.getState();
+		const cs = await this.getState();
 
 		let res = await fetch(API_BASE_URL + "/auth", {
 			method: "POST",
@@ -122,7 +122,7 @@ export const state = {
 		}
 	},
 	async initRoom() {
-		const cs = this.getState();
+		const cs = await this.getState();
 
 		if (cs.roomId) {
 			await this.connectRoom();
@@ -142,12 +142,12 @@ export const state = {
 
 		let data = await res.json();
 		cs.roomId = await data.id;
-		this.setState(cs);
+		await this.setState(cs);
 
 		await this.connectRoom();
 	},
 	async connectRoom() {
-		const cs = this.getState();
+		const cs = await this.getState();
 
 		let res = await fetch(
 			API_BASE_URL + "/rooms/" + cs.roomId + "?userId=" + cs.userId,
@@ -155,7 +155,7 @@ export const state = {
 
 		let data = await res.json();
 		cs.rtdbRoomId = await data.rtdbRoomId;
-		this.setState(cs);
+		await this.setState(cs);
 
 		await this.listenRoom();
 	},
