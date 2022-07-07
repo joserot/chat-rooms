@@ -26,6 +26,9 @@ export const state = {
 	},
 	async listenRoom() {
 		const cs = await this.getState();
+
+		console.log(cs);
+
 		const roomRef = await ref(db, "rooms/" + cs.rtdbRoomId);
 
 		await onValue(roomRef, (snap) => {
