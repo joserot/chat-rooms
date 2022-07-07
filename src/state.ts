@@ -152,6 +152,8 @@ export const state = {
 	async connectRoom() {
 		const cs = await this.getState();
 
+		console.log("hasta aca llego");
+
 		let res = await fetch(
 			API_BASE_URL + "/rooms/" + cs.roomId + "?userId=" + cs.userId,
 		);
